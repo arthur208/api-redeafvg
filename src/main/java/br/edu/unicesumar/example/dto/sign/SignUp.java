@@ -14,13 +14,24 @@ import lombok.Data;
 public class SignUp {
 
     @NotEmpty
-    private String firstName;
+    private String RazaoSocial;
 
     @NotEmpty
-    private String lastName;
+    private String NomeFantasia;
 
     @NotNull
-    private LocalDate birthdate;
+    private String CNPJ;
+
+    @NotNull
+    private String Logradouro;
+
+    @NotNull
+    private String Numero;
+
+    @NotNull
+    private String Complemento;
+
+    private String IE;
 
     @Email
     private String email;

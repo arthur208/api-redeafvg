@@ -54,11 +54,21 @@ public class Users implements UserDetails {
     private Set<Roles> roles = new HashSet<>();
 
     @NotEmpty
-    private String firstName;
+    private String RazaoSocial;
 
-    private String lastName;
+    private String NomeFantasia;
 
-    private LocalDate birtdate;
+    private String CNPJ;
+
+    private String Logradouro;
+
+    private String Numero;
+
+    private String Complemento;
+
+    private String IE;
+
+
 
     @Email
     private String email;

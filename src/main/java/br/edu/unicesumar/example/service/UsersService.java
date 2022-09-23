@@ -77,9 +77,14 @@ public class UsersService implements UserDetailsService {
                 .username(signUp.getUsername())
                 .password(passwordEncoder.encode(signUp.getPassword()))
                 .email(signUp.getEmail())
-                .firstName(signUp.getFirstName())
-                .lastName(signUp.getLastName())
-                .birtdate(signUp.getBirthdate()).build();
+                .RazaoSocial(signUp.getRazaoSocial())
+                .NomeFantasia(signUp.getNomeFantasia())
+                .CNPJ(signUp.getCNPJ())
+                .Logradouro(signUp.getLogradouro())
+                .Numero(signUp.getNumero())
+                .Complemento(signUp.getComplemento())
+                .IE(signUp.getIE()).build();
+                
 
         return usersRepository.save(users);
     }
@@ -91,7 +96,7 @@ public class UsersService implements UserDetailsService {
             Users admin = Users.builder()
                     .username(this.adminUsername)
                     .password(passwordEncoder.encode(this.adminPassword))
-                    .firstName("Admin").build();
+                    .RazaoSocial("Admin").build();
 
             admin.getRoles().add(Roles.ROLE_ADMIN);
 
