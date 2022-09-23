@@ -30,6 +30,7 @@ import lombok.SneakyThrows;
 
 
 @RestController
+@CrossOrigin("*") 
 @RequestMapping("/Fornecedor")
 public class FornecedorController {
     
