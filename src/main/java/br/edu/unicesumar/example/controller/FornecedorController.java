@@ -42,8 +42,8 @@ public class FornecedorController {
     // }
 
     @GetMapping
-    public ResponseEntity<Page<Fornecedor>> buscarTodosPorNome(@RequestParam(name = "Fornecedor", required = false, defaultValue = "") String Fornecedor, Pageable pageable) {
-        return ResponseEntity.ok(service.findAll(Fornecedor, pageable));
+    public ResponseEntity<Page<Fornecedor>> buscarTodosPorNome(@RequestParam(name = "Fornecedor", required = false, defaultValue = "") String fornecedor, Pageable pageable) {
+        return ResponseEntity.ok(service.findAll(fornecedor, pageable));
     }
 
     @PostMapping
