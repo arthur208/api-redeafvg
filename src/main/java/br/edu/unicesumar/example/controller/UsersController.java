@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.unicesumar.example.domain.Users;
 
 @RestController
+@CrossOrigin("*") 
 @RequestMapping("/api/users")
 public class UsersController {
 

@@ -27,8 +27,8 @@ import br.edu.unicesumar.example.dto.sign.SignUp;
 import br.edu.unicesumar.example.service.ProdutosService;
 import lombok.SneakyThrows;
 
-
 @RestController
+@CrossOrigin("*") 
 @RequestMapping("/Produtos")
 public class ProdutosController {
 

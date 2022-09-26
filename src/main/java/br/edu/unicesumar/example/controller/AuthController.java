@@ -14,8 +14,8 @@ import br.edu.unicesumar.example.domain.Users;
 import br.edu.unicesumar.example.dto.sign.SignIn;
 import br.edu.unicesumar.example.dto.sign.SignUp;
 import br.edu.unicesumar.example.service.UsersService;
-
 @RestController
+@CrossOrigin("*") 
 @RequestMapping("/api/auth")
 public class AuthController {
 
