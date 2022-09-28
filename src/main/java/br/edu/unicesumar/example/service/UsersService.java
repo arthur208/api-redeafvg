@@ -1,5 +1,7 @@
 package br.edu.unicesumar.example.service;
 
+import java.util.UUID;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.data.domain.Pageable;
@@ -129,14 +131,15 @@ public class UsersService implements UserDetailsService {
             return this.usersRepository.save(Users);
         }
 
-        return this.signUp(Users);
+        return this.save(Users);
     }
-    public void delete(Long id) {
-        if (!this.Produtosrepository.existsById(id)) {
+
+    public void delete(UUID id) {
+        if (!this.usersRepository.existsById(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Aluno não encontrado!");
         }
 
-        this.Produtosrepository.deleteById(id);
+        this.usersRepository.deleteById(id);
     }
 
 }
