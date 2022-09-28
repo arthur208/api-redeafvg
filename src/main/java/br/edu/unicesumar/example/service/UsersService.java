@@ -87,6 +87,10 @@ public class UsersService implements UserDetailsService {
                 .Logradouro(signUp.getLogradouro())
                 .Numero(signUp.getNumero())
                 .Complemento(signUp.getComplemento())
+                .uf(signUp.getUf())
+                .cep(signUp.getCep())
+                .telefone(signUp.getTelefone())
+                .cidade(signUp.getCidade())
                 .IE(signUp.getIE()).build();
                 
 
