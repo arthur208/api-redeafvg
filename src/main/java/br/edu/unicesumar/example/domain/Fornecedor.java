@@ -45,7 +45,7 @@ public class Fornecedor  {
     private String NomeFantasia;
 
     @NotBlank
-    private String fornecedor; 
+    private String Fornecedor; 
 
     @NotBlank
     private String CNPJ;

@@ -2,9 +2,11 @@ package br.edu.unicesumar.example.service;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -103,6 +105,38 @@ public class UsersService implements UserDetailsService {
             usersRepository.save(admin);
         }
 
+    }
+
+    public Users save(Users Users) {
+        if (this.usersRepository.existsById(Users.getId())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Matrícula já utilizada!");
+        }
+        return this.usersRepository.save(Users);
+    }
+
+    public Page<Users> findAll(String username, Pageable pageable) {
+        return this.usersRepository.findByUsernameIgnoreCaseContaining(username, pageable);
+    }
+
+
+    public Users update(Users Users) {
+        Users ProdutosBancoDeDados = this.usersRepository.findById(Users.getId()).orElse(null);
+        if (ProdutosBancoDeDados == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Aluno não encontrado!");
+        }
+
+        if (ProdutosBancoDeDados.getId().equals(ProdutosBancoDeDados.getId())) {
+            return this.usersRepository.save(Users);
+        }
+
+        return this.signUp(Users);
+    }
+    public void delete(Long id) {
+        if (!this.Produtosrepository.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Aluno não encontrado!");
+        }
+
+        this.Produtosrepository.deleteById(id);
     }
 
 }

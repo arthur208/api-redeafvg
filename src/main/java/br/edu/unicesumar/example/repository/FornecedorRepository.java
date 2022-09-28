@@ -11,5 +11,5 @@ public interface FornecedorRepository extends JpaRepository<Fornecedor, Long>{
 
     
     
-    Page<Fornecedor> findByFornecedorIgnoreCaseContaining(String fornecedor,Pageable pageable);
+    Page<Fornecedor> findByFornecedorIgnoreCaseContaining(String Fornecedor,Pageable pageable);
 }
