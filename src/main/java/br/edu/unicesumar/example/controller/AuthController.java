@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +15,8 @@ import br.edu.unicesumar.example.domain.Users;
 import br.edu.unicesumar.example.dto.sign.SignIn;
 import br.edu.unicesumar.example.dto.sign.SignUp;
 import br.edu.unicesumar.example.service.UsersService;
-
 @RestController
+@CrossOrigin("*") 
 @RequestMapping("/api/auth")
 public class AuthController {
 
