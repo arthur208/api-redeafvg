@@ -55,11 +55,11 @@ public class Users implements UserDetails {
 
     @NotEmpty
     private String RazaoSocial;
-
+    @NotEmpty
     private String NomeFantasia;
-
+    @NotEmpty
     private String CNPJ;
-
+    @NotEmpty
     private String Logradouro;
 
     private String Numero;
@@ -67,6 +67,18 @@ public class Users implements UserDetails {
     private String Complemento;
 
     private String IE;
+
+    @NotEmpty
+    private String telefone;
+
+    @NotEmpty
+    private String cep;
+
+    @NotEmpty
+    private String cidade;
+
+    @NotEmpty
+    private String uf;
 
 
 

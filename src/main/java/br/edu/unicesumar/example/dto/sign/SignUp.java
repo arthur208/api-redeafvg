@@ -33,6 +33,18 @@ public class SignUp {
 
     private String IE;
 
+    @NotNull
+    private String telefone;
+
+    @NotNull
+    private String cep;
+
+    @NotNull
+    private String cidade;
+
+    @NotNull
+    private String uf;
+
     @Email
     private String email;
 

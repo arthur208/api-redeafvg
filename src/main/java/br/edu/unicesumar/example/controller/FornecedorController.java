@@ -42,9 +42,9 @@ public class FornecedorController {
     // public ResponseEntity<Page<Fornecedor>> buscarTodos(Pageable pageable) {
     //     return ResponseEntity.ok(this.service.findAll(pageable));
     // }
-    @CrossOrigin(origins = "http://localhost:4200")
+
     @GetMapping
-    public ResponseEntity<Page<Fornecedor>> buscarTodosPorNome(@RequestParam(name = "Fornecedor", required = false, defaultValue = "") String fornecedor, Pageable pageable) {
+    public ResponseEntity<Page<Fornecedor>> buscarTodosPorNome(@RequestParam(name = "fornecedor", required = false, defaultValue = "") String fornecedor, Pageable pageable) {
         return ResponseEntity.ok(service.findAll(fornecedor, pageable));
     }
 
