@@ -1,5 +1,6 @@
 package br.edu.unicesumar.example.service;
 
+import java.util.Optional;
 import java.util.UUID;
 
 import javax.annotation.PostConstruct;
@@ -54,6 +55,10 @@ public class UsersService implements UserDetailsService {
     public Users loadUserByUsername(String username) throws UsernameNotFoundException {
         return usersRepository.findUsersByUsername(username);
     }
+
+    public Optional<Users> findById(UUID id) {
+		return this.usersRepository.findById(id);
+	}
 
     public Jwt signIn(SignIn signIn) {
 

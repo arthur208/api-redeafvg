@@ -43,6 +43,17 @@ public class ProdutosController {
     //     return ResponseEntity.ok(this.service.findAll(pageable));
     // }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Produtos> buscarPorId(@PathVariable(name="id") Long id) {
+        Optional<Produtos> ProdutosOpt = this.service.findById(id);
+
+        if(ProdutosOpt.isPresent()) {
+            return ResponseEntity.ok(ProdutosOpt.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @GetMapping
     public ResponseEntity<Page<Produtos>> buscarTodosPorNome(@RequestParam(name = "Produto", required = false, defaultValue = "") String Produto, Pageable pageable) {
         return ResponseEntity.ok(service.findAll(Produto, pageable));

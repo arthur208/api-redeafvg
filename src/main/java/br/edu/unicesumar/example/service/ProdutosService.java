@@ -32,7 +32,9 @@ public class ProdutosService {
     // } 
 
     
-   
+    public Optional<Produtos> findById(Long id) {
+		return this.Produtosrepository.findById(id);
+	}
 
 
     public Page<Produtos> findAll(String Produto, Pageable pageable) {

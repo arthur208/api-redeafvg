@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.unicesumar.example.service.UsersService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import br.edu.unicesumar.example.domain.Users;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin("*") 
@@ -27,6 +28,18 @@ public class UsersController {
     
     @Autowired
     private UsersService service;
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Users> buscarPorId(@PathVariable(name="id") UUID id) {
+        Optional<Users> ProdutosOpt = this.service.findById(id);
+
+        if(ProdutosOpt.isPresent()) {
+            return ResponseEntity.ok(ProdutosOpt.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
     @GetMapping
     public ResponseEntity<Page<Users>> buscarTodosPorNome(@RequestParam(name = "username", required = false, defaultValue = "") String username, Pageable pageable) {
