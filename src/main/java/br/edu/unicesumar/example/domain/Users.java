@@ -80,6 +80,8 @@ public class Users implements UserDetails {
     @NotEmpty
     private String uf;
 
+    private String bairro;
+
 
 
     @Email

@@ -21,58 +21,50 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.data.domain.Page;
 import br.edu.unicesumar.example.config.auth.jwt.Jwt;
-import br.edu.unicesumar.example.domain.Fornecedor;
-import br.edu.unicesumar.example.domain.Users;
+import br.edu.unicesumar.example.domain.CotacaoParcial;
 import br.edu.unicesumar.example.dto.sign.SignIn;
 import br.edu.unicesumar.example.dto.sign.SignUp;
-import br.edu.unicesumar.example.service.FornecedorService;
+import br.edu.unicesumar.example.service.CotacaoParcialService;
 import lombok.SneakyThrows;
-
 
 @RestController
 @CrossOrigin("*") 
-@RequestMapping("/Fornecedor")
-public class FornecedorController {
-    
+@RequestMapping("/CotacãoParcial")
+public class CotacãoParcialController {
     @Autowired
-    private FornecedorService service;
+    private CotacaoParcialService service;
 
-   
-    // @GetMapping
-    // public ResponseEntity<Page<Fornecedor>> buscarTodos(Pageable pageable) {
-    //     return ResponseEntity.ok(this.service.findAll(pageable));
-    // }
+    @PostMapping
+    @SneakyThrows
+    public ResponseEntity<CotacaoParcial> salvar(@RequestBody CotacaoParcial CotacãoParcial) {
+        CotacaoParcial CotaçãoParcial = service.save(CotacãoParcial);
+        return ResponseEntity.created(new URI("/CotaçãoParcial/" + CotacãoParcial.getId())).body(CotaçãoParcial);
+    }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Fornecedor> buscarPorId(@PathVariable(name="id") Long id) {
-        Optional<Fornecedor> fornecedorOpt = this.service.findById(id);
+    public ResponseEntity<CotacaoParcial> buscarPorId(@PathVariable(name="id") Long id) {
+        Optional<CotacaoParcial> CotacaoParcialOpt = this.service.findById(id);
 
-        if(fornecedorOpt.isPresent()) {
-            return ResponseEntity.ok(fornecedorOpt.get());
+        if(CotacaoParcialOpt.isPresent()) {
+            return ResponseEntity.ok(CotacaoParcialOpt.get());
         } else {
             return ResponseEntity.notFound().build();
         }
     }
-
+    
     @GetMapping
-    public ResponseEntity<Page<Fornecedor>> buscarTodosPorNome(@RequestParam(name = "Fornecedor", required = false, defaultValue = "") String Fornecedor, Pageable pageable) {
-        return ResponseEntity.ok(service.findAll(Fornecedor, pageable));
+    public ResponseEntity<Page<CotacaoParcial>> buscarTodosPorNome(@RequestParam(name = "CotacaoParcial", required = false, defaultValue = "") Long id, Pageable pageable) {
+        return ResponseEntity.ok(service.findAll(id, pageable));
     }
 
-    @PostMapping
-    @SneakyThrows
-    public ResponseEntity<Fornecedor> salvar(@RequestBody Fornecedor Fornecedor) {
-        Fornecedor ProdutoSalvo = service.save(Fornecedor);
-        return ResponseEntity.created(new URI("/Fornecedor/" + Fornecedor.getId())).body(ProdutoSalvo);
-    }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Fornecedor> atualizar(@PathVariable("id") Long id, @RequestBody Fornecedor Fornecedor) {
-        if (!id.equals(Fornecedor.getId())) {
+    public ResponseEntity<CotacaoParcial> atualizar(@PathVariable("id") Long id, @RequestBody CotacaoParcial CotacaoParcial) {
+        if (!id.equals(CotacaoParcial.getId())) {
             return ResponseEntity.badRequest().build();
         }
 
-        return ResponseEntity.ok(service.update(Fornecedor));
+        return ResponseEntity.ok(service.update(CotacaoParcial));
     }
     
     @DeleteMapping("/{id}")

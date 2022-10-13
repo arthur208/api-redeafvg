@@ -24,8 +24,12 @@ public class FornecedorService {
     @Autowired
     private FornecedorRepository Fornecedorrepository;
 
-    public Page<Fornecedor> findAll(String Fornecedor, Pageable pageable) {
-        return this.Fornecedorrepository.findByFornecedorIgnoreCaseContaining(Fornecedor, pageable);
+
+    public Optional< Fornecedor> findById(Long id) {
+		return this.Fornecedorrepository.findById(id);
+	}
+    public Page<Fornecedor> findAll(String fornecedor, Pageable pageable) {
+        return this.Fornecedorrepository.findByFornecedorIgnoreCaseContaining(fornecedor, pageable);
     }
 
 
