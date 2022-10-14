@@ -108,6 +108,14 @@ public class UsersService implements UserDetailsService {
         if (!usersRepository.existsByUsername(this.adminUsername)) {
             Users admin = Users.builder()
                     .username(this.adminUsername)
+                    .CNPJ("123456")
+                    .RazaoSocial("aaaaa")
+                    .Logradouro("aaaa")
+                    .uf("uf")
+                    .telefone("123456")
+                    .cep("123465")
+                    .NomeFantasia("asssas")
+                    .cidade("cidade")
                     .password(passwordEncoder.encode(this.adminPassword))
                     .RazaoSocial("Admin").build();
 

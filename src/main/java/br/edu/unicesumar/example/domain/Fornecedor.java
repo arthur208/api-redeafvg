@@ -74,10 +74,10 @@ public class Fornecedor  {
     @NotBlank
     private String logradouro;
 
-    @NotBlank
+   
     private String numero;
 
-    @NotBlank
+    
     private String bairro;
 
     
