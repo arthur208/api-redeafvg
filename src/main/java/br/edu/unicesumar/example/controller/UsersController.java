@@ -12,13 +12,17 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import br.edu.unicesumar.example.service.UsersService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import lombok.SneakyThrows;
 import br.edu.unicesumar.example.domain.Users;
+
+import java.net.URI;
 import java.util.Optional;
 
 @RestController
@@ -40,6 +44,12 @@ public class UsersController {
         }
     }
 
+    @PostMapping
+    @SneakyThrows
+    public ResponseEntity<Users> salvar(@RequestBody Users Users) {
+        Users UsersSalvo = service.save(Users);
+        return ResponseEntity.created(new URI("/Users/" + Users.getId())).body(UsersSalvo);
+    }
 
     @GetMapping
     public ResponseEntity<Page<Users>> buscarTodosPorNome(@RequestParam(name = "username", required = false, defaultValue = "") String username, Pageable pageable) {

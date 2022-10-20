@@ -97,7 +97,7 @@ public class UsersService implements UserDetailsService {
                 .telefone(signUp.getTelefone())
                 .cidade(signUp.getCidade())
                 .IE(signUp.getIE()).build();
-                
+                users.getRoles().add(Roles.ROLE_INTERNAL);
 
         return usersRepository.save(users);
     }

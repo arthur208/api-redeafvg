@@ -28,8 +28,8 @@ public class FornecedorService {
     public Optional< Fornecedor> findById(Long id) {
 		return this.Fornecedorrepository.findById(id);
 	}
-    public Page<Fornecedor> findAll(String fornecedor, Pageable pageable) {
-        return this.Fornecedorrepository.findByFornecedorIgnoreCaseContaining(fornecedor, pageable);
+    public Page<Fornecedor> findAll(String NomeFantasia, Pageable pageable) {
+        return this.Fornecedorrepository.findByNomeFantasiaIgnoreCaseContaining(NomeFantasia, pageable);
     }
 
 
