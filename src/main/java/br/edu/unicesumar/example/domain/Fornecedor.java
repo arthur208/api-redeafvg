@@ -42,7 +42,7 @@ public class Fornecedor  {
     private String RazaoSocial;
 
     @NotBlank
-    private String NomeFantasia;
+    private String nomeFantasia;
 
     @NotBlank
     private String fornecedor; 
