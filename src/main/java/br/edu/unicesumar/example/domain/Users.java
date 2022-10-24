@@ -82,6 +82,8 @@ public class Users implements UserDetails {
 
     private String bairro;
 
+    private String contato;
+
 
 
     @Email

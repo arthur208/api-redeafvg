@@ -27,6 +27,7 @@ public class SignUp {
 
    
     private String Numero;
+    private String contato;
 
 
     private String Complemento;

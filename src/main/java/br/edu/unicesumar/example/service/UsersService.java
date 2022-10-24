@@ -93,6 +93,7 @@ public class UsersService implements UserDetailsService {
                 .Numero(signUp.getNumero())
                 .bairro(signUp.getBairro())
                 .Complemento(signUp.getComplemento())
+                .contato(signUp.getContato())
                 .uf(signUp.getUf())
                 .cep(signUp.getCep())
                 .telefone(signUp.getTelefone())
