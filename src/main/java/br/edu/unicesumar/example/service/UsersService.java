@@ -91,6 +91,7 @@ public class UsersService implements UserDetailsService {
                 .CNPJ(signUp.getCNPJ())
                 .Logradouro(signUp.getLogradouro())
                 .Numero(signUp.getNumero())
+                .bairro(signUp.getBairro())
                 .Complemento(signUp.getComplemento())
                 .uf(signUp.getUf())
                 .cep(signUp.getCep())

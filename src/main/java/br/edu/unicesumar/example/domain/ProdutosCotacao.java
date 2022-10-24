@@ -30,7 +30,7 @@ public class ProdutosCotacao {
     @NotBlank
     private Number quantidade;
 
-    @NotBlank
+    
     private String preco;
 
     

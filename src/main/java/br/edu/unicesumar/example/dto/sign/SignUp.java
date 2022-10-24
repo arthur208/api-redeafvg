@@ -25,11 +25,14 @@ public class SignUp {
     @NotNull
     private String Logradouro;
 
-    @NotNull
+   
     private String Numero;
 
-    @NotNull
+
     private String Complemento;
+
+    
+    private String Bairro;
 
     private String IE;
 
