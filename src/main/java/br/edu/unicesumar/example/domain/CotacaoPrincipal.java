@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -33,10 +34,11 @@ public class CotacaoPrincipal {
     @NotNull
     private String data_final_cotacao;
 
+    @NotNull
+    private String data_inicial_cotacao;
+
     private String status_cotacao;
 
-    @Builder.Default
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cotacao_id")
-    private List<ProdutosCotacao> ProdutosCotacao = new ArrayList<>();
+    
+    
 }

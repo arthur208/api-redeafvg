@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -52,6 +53,9 @@ public class CotacaoParcial {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "cotacao_id")
     private List<ProdutosCotacao> ProdutosCotacao = new ArrayList<>();
-
+    
+    @ManyToOne
+    @JoinColumn(name = "cotacaoparcial_id")
+    private CotacaoPrincipal CotacaoPrincipal ;
 
 }

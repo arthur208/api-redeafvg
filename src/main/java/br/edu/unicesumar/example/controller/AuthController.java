@@ -17,7 +17,7 @@ import br.edu.unicesumar.example.dto.sign.SignUp;
 import br.edu.unicesumar.example.service.UsersService;
 
 @RestController
-@CrossOrigin("*") 
+@CrossOrigin 
 @RequestMapping("/api/auth")
 public class AuthController {
 
@@ -28,7 +28,7 @@ public class AuthController {
     public ResponseEntity<Jwt> signIn(@Valid @RequestBody SignIn signIn) {
         return ResponseEntity.ok(usersService.signIn(signIn));
     }
-
+    @CrossOrigin 
     @PostMapping("/signup")
     public ResponseEntity<Users> signIn(@Valid @RequestBody SignUp signUp) {
         return ResponseEntity.ok(usersService.signUp(signUp));
