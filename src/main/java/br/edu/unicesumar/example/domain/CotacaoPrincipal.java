@@ -32,7 +32,13 @@ public class CotacaoPrincipal {
     private Long id;
 
     @NotNull
+    private String Nome;
+
+
+    @NotNull
     private String data_final_cotacao;
+
+ 
 
     @NotNull
     private String data_inicial_cotacao;
