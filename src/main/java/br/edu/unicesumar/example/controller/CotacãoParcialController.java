@@ -1,6 +1,7 @@
 package br.edu.unicesumar.example.controller;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -51,6 +52,25 @@ public class CotacãoParcialController {
             return ResponseEntity.notFound().build();
         }
     }
+
+ 
+
+
+    @GetMapping("/cotacaoprincipal/{id}")
+    public ResponseEntity<List<CotacaoParcial>> buscarCotacaoPrincipalID(@PathVariable(name = "id") Long id) {
+        return ResponseEntity.ok(this.service.findCotacaoPrincipal(id));
+    }
+
+    @GetMapping("/cotacaoprincipal")
+    public ResponseEntity<List<CotacaoParcial>> buscarCotacaoPrincipal(@PathVariable(name = "id") Long id) {
+        return ResponseEntity.ok(this.service.findCotacaoPrincipal(id));
+    }
+
+
+
+
+
+
     
     @GetMapping
     public ResponseEntity<Page<CotacaoParcial>> buscarTodosPorNome(@RequestParam(name = "CotacaoParcial", required = false, defaultValue = "") Long id, Pageable pageable) {

@@ -1,6 +1,7 @@
 package br.edu.unicesumar.example.service;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,10 @@ public class CotacaoParcialService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Matrícula já utilizada!");
         }
         return this.CotaçãoParcialrepository.save(CotaçãoParcial);
+    }
+
+    public List<CotacaoParcial> findCotacaoPrincipal(Long id) {
+        return this.CotaçãoParcialrepository.findCotacaoPrincipalId(id);
     }
 
 

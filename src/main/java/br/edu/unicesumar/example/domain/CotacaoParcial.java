@@ -55,7 +55,7 @@ public class CotacaoParcial {
     private List<ProdutosCotacao> ProdutosCotacao = new ArrayList<>();
     
     @ManyToOne
-    @JoinColumn(name = "cotacaoparcial_id")
+    @JoinColumn(name = "cotacaoprincipal_id")
     private CotacaoPrincipal CotacaoPrincipal ;
 
 }
