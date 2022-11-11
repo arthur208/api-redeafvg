@@ -30,7 +30,7 @@ import lombok.SneakyThrows;
 
 @RestController
 @CrossOrigin("*") 
-@RequestMapping("/CotacãoParcial")
+@RequestMapping("/CotacaoParcial")
 public class CotacãoParcialController {
     @Autowired
     private CotacaoParcialService service;
