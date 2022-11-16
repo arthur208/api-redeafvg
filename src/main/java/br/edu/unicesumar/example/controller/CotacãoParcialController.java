@@ -62,8 +62,8 @@ public class CotacãoParcialController {
     }
 
     @GetMapping("/cotacaoprincipal")
-    public ResponseEntity<List<CotacaoParcial>> buscarCotacaoPrincipal(@PathVariable(name = "id") Long id) {
-        return ResponseEntity.ok(this.service.findCotacaoPrincipal(id));
+    public ResponseEntity<List<CotacaoParcial>> buscarCotacaoPrincipal() {
+        return ResponseEntity.ok(this.service.findAll2());
     }
 
 

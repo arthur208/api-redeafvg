@@ -31,7 +31,7 @@ public class CotacaoParcial {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    
     private Long id_comerciante;
 
     @NotNull

@@ -16,4 +16,7 @@ public interface CotacaoParcialRepository extends JpaRepository<CotacaoParcial, 
 
     @Query(value = "select * from cotacao_parcial cp where cp.cotacaoprincipal_id = ?1", nativeQuery = true)
     List<CotacaoParcial> findCotacaoPrincipalId(Long id);
+
+    @Query(value = "select * from cotacao_parcial", nativeQuery = true)
+    List<CotacaoParcial> findCotacaoPrincipal();
 }

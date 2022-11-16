@@ -27,7 +27,7 @@ public class ProdutosCotacao {
     @NotBlank
     private String produto;
 
-    @NotBlank
+    
     private Number quantidade;
 
     

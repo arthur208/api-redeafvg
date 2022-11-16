@@ -41,6 +41,12 @@ public class CotacaoParcialService {
         return this.CotaçãoParcialrepository.findByidIgnoreCaseContaining(id, pageable);
     }
 
+    public List<CotacaoParcial> findAll2() {
+        return this.CotaçãoParcialrepository.findCotacaoPrincipal();
+    }
+
+   
+
 
     public CotacaoParcial update(CotacaoParcial CotacaoParcial) {
         CotacaoParcial CotacaoParcialBancoDeDados = this.CotaçãoParcialrepository.findById(CotacaoParcial.getId()).orElse(null);
