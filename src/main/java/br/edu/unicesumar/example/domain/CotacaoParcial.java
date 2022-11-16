@@ -32,7 +32,7 @@ public class CotacaoParcial {
     private Long id;
 
     
-    private Long id_comerciante;
+
 
     @NotNull
     private String data_atual_cotacao;
@@ -54,6 +54,16 @@ public class CotacaoParcial {
     @JoinColumn(name = "cotacao_id")
     private List<ProdutosCotacao> ProdutosCotacao = new ArrayList<>();
     
+
+
+    @Builder.Default
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "users_id")
+    private List<Users> Users = new ArrayList<>();
+
+
+
+
     @ManyToOne
     @JoinColumn(name = "cotacaoprincipal_id")
     private CotacaoPrincipal CotacaoPrincipal ;
