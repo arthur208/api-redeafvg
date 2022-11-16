@@ -56,10 +56,10 @@ public class CotacaoParcial {
     
 
 
-    @Builder.Default
-    @OneToMany(cascade = CascadeType.ALL)
+  
+    @ManyToOne()
     @JoinColumn(name = "users_id")
-    private List<Users> Users = new ArrayList<>();
+    private Users users; 
 
 
 
