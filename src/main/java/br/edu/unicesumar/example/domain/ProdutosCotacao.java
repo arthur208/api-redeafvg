@@ -30,6 +30,8 @@ public class ProdutosCotacao {
     
     private Number quantidade;
 
+
+    private String unMedida;
     
     private String preco;
 
