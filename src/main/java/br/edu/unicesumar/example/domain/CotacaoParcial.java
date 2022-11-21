@@ -50,7 +50,7 @@ public class CotacaoParcial {
     @NotBlank
     private String CNPJ;
     @Builder.Default
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "cotacao_id")
     private List<ProdutosCotacao> ProdutosCotacao = new ArrayList<>();
     
